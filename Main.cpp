@@ -1,4 +1,5 @@
 #include <iostream>
+#include <tclDecls.h>
 #include "Product.h"
 #include "Airpods.h"
 #include "iPhone.h"
@@ -30,14 +31,14 @@ int main() {
                 std::cin >> product_type;
 
                 std::string name, productId, color, chargingType;
-                int ram, storage, screenSize, quantity;
+                int ram, storage, size, screenSize, quantity;
                 float price;
+                bool isUltra;
 
                 switch (product_type) {
                     case 1:
-                        std::cout << "Enter product name: ";
-                        std::cin.ignore();
-                        std::getline(std::cin, name);
+                        std::cout << "Enter Airpods name: ";
+                        std::cin >> name;
                         std::cout << "Enter product ID: ";
                         std::cin >> productId;
                         std::cout << "Enter color: ";
@@ -51,31 +52,25 @@ int main() {
                         products[num_products++] = new Airpods(name, productId, color, chargingType, price, quantity);
                         break;
                     case 2:
-                        std::cout << "Enter product name: ";
-                        std::cin.ignore();
-                        std::getline(std::cin, name);
+                        std::cout << "Enter iPhone name: ";
+                        std::cin >> name;
                         std::cout << "Enter product ID: ";
                         std::cin >> productId;
                         std::cout << "Enter color: ";
                         std::cin >> color;
-                        std::cout << "Enter RAM: ";
-                        std::cin >> ram;
-                        std::cout << "Enter storage: ";
-                        std::cin >> storage;
+                        std::cout << "Enter charging type: ";
+                        std::cin >> chargingType;
                         std::cout << "Enter price: ";
                         std::cin >> price;
                         std::cout << "Enter quantity: ";
                         std::cin >> quantity;
-                        products[num_products++] = new iPhone(name, productId, color, ram, storage, price, quantity);
+                        products[num_products++] = new iPhone(name, productId, color, chargingType, price, quantity);
                         break;
                     case 3:
-                        std::cout << "Enter product name: ";
-                        std::cin.ignore();
-                        std::getline(std::cin, name);
+                        std::cout << "Enter Mac name: ";
+                        std::cin >> name;
                         std::cout << "Enter product ID: ";
                         std::cin >> productId;
-                        std::cout << "Enter color: ";
-                        std::cin >> color;
                         std::cout << "Enter RAM: ";
                         std::cin >> ram;
                         std::cout << "Enter screen size: ";
@@ -84,22 +79,26 @@ int main() {
                         std::cin >> price;
                         std::cout << "Enter quantity: ";
                         std::cin >> quantity;
-                        products[num_products++] = new Mac(name, productId, color, screenSize, price, quantity);
+                        products[num_products++] = new Mac(name, productId, ram, screenSize, price, quantity);
                         break;
                     case 4:
-                        std::cout << "Enter product name: ";
-                        std::cin.ignore();
-                        std::getline(std::cin, name);
+                        std::cout << "Enter Watch name: ";
+                        std::cin >> name;
                         std::cout << "Enter product ID: ";
                         std::cin >> productId;
                         std::cout << "Enter color: ";
                         std::cin >> color;
+                        std::cout << "Enter size: ";
+                        std::cin >> size;
+                        std::cout << "Is Ultra: ";
+                        std::cin >> isUltra;
                         std::cout << "Enter price: ";
                         std::cin >> price;
                         std::cout << "Enter quantity: ";
                         std::cin >> quantity;
-                        products[num_products++] = new Watch(name, productId, color, price, quantity);
+                        products[num_products++] = new Watch(name, productId, color, size, isUltra, price, quantity);
                         break;
+
                     default:
                         std::cout << "Invalid product type\n";
                         break;
