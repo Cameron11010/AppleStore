@@ -3,26 +3,23 @@
 
 #include "Product.h"
 
-class Mac: public Product {
-private:
-    std::string model;
-
+class Mac : public Product {
 public:
-    // Constructors
     Mac();
-    Mac(std::string, std::string, std::string, float, int);
-
-    // Destructor
+    Mac(std::string, std::string, int, float, int, int);
     ~Mac();
+    void setRam(int);
+    void setScreenSize(int);
+    int getRam();
+    int getScreenSize();
+    void setColor(std::string); // Add this function
+    std::string getColor(); // Add this function
+    void display() const override;
 
-    // Setters
-    void setModel(std::string);
-
-    // Getters
-    std::string getModel();
-
-    // Implement the pure virtual function
-    void display();
+private:
+    int ram;
+    int screenSize;
+    std::string color; // Add this data member
 };
 
 #endif /* Mac_h */
