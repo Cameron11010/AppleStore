@@ -1,24 +1,25 @@
-#include "Product.h"
+#ifndef Product_h
+#define Product_h
 
-Product::Product() : name(""), productId(""), price(0.0), quantity(0) {}
+#include <iostream>
+#include <string>
 
-Product::Product(std::string name, std::string productId, float price, int quantity)
-        : name(name), productId(productId), price(price), quantity(quantity) {}
+class Product {
+public:
+    Product();
+    Product(std::string name, std::string productId, float price, int quantity);
+    virtual ~Product();
+    std::string getName() const;
+    std::string getProductId() const;
+    float getPrice() const;
+    int getQuantity() const;
+    virtual void setColor(std::string color) = 0;
+    virtual void display() const = 0;
+protected:
+    std::string name;
+    std::string productId;
+    float price;
+    int quantity;
+};
 
-Product::~Product() {}
-
-std::string Product::getName() const {
-    return name;
-}
-
-std::string Product::getProductId() const {
-    return productId;
-}
-
-float Product::getPrice() const {
-    return price;
-}
-
-int Product::getQuantity() const {
-    return quantity;
-}
+#endif /* Product_h */
