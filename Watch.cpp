@@ -19,6 +19,10 @@ void Watch::setIsUltra(bool i) {
     isUltra = i;
 }
 
+std::string Watch::getColor() const {
+    return color;
+}
+
 int Watch::getSize() const {
     return size;
 }
