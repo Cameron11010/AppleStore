@@ -1,29 +1,41 @@
 #include "Mac.h"
 
-Mac::Mac() : Product() {
-    model = "";
+Mac::Mac() : Product(), ram(0), screenSize(0), color("") {}
+
+Mac::Mac(std::string name, std::string productId, int r, float p, int q, int s) : Product(name, productId, p, q), ram(r), screenSize(s), color("") {}
+
+Mac::~Mac() {}
+
+void Mac::setRam(int r) {
+    ram = r;
 }
 
-Mac::Mac(std::string n, std::string pid, std::string m, float p, int q) : Product(n, pid, p, q) {
-    model = m;
+void Mac::setScreenSize(int s) {
+    screenSize = s;
 }
 
-Mac::~Mac() {
-    // Destructor body
+void Mac::setColor(std::string c) {
+    color = c;
 }
 
-void Mac::setModel(std::string m) {
-    model = m;
+std::string Mac::getColor() {
+    return color;
 }
 
-std::string Mac::getModel() {
-    return model;
+int Mac::getRam() {
+    return ram;
 }
 
-void Mac::display() {
-    std::cout << "Product: " << getName() << std::endl;
+int Mac::getScreenSize() {
+    return screenSize;
+}
+
+void Mac::display() const {
+    std::cout << "Name: " << getName() << std::endl;
     std::cout << "Product ID: " << getProductId() << std::endl;
-    std::cout << "Model: " << getModel() << std::endl;
+    std::cout << "RAM: " << ram << " GB" << std::endl;
+    std::cout << "Screen Size: " << screenSize << " inches" << std::endl;
+    std::cout << "Color: " << color << std::endl;
     std::cout << "Price: $" << getPrice() << std::endl;
     std::cout << "Quantity: " << getQuantity() << std::endl;
 }
