@@ -1,29 +1,33 @@
 #include "Accessories.h"
 
-Accessories::Accessories() : Product() {
-    brand = "";
+Accessories::Accessories() : Product(), colour(""), brand("") {}
+
+Accessories::Accessories(std::string name, std::string productId, std::string colour, std::string brand, float price, int quantity)
+        : Product(name, productId, price, quantity), colour(colour), brand(brand) {}
+
+Accessories::~Accessories() {}
+
+void Accessories::setBrand(std::string brand) {
+    this->brand = brand;
 }
 
-Accessories::Accessories(std::string n, std::string pid, std::string b, float p, int q) : Product(n, pid, p, q) {
-    brand = b;
+void Accessories::setColour(std::string colour) {
+    this->colour = colour;
 }
 
-Accessories::~Accessories() {
-    // Destructor body
-}
-
-void Accessories::setBrand(std::string b) {
-    brand = b;
-}
-
-std::string Accessories::getBrand() {
+std::string Accessories::getBrand() const {
     return brand;
 }
 
-void Accessories::display() {
-    std::cout << "Product: " << getName() << std::endl;
+std::string Accessories::getColour() const {
+    return colour;
+}
+
+void Accessories::display() const {
+    std::cout << "Name: " << getName() << std::endl;
     std::cout << "Product ID: " << getProductId() << std::endl;
-    std::cout << "Brand: " << getBrand() << std::endl;
+    std::cout << "Colour: " << colour << std::endl;
+    std::cout << "Brand: " << brand << std::endl;
     std::cout << "Price: $" << getPrice() << std::endl;
     std::cout << "Quantity: " << getQuantity() << std::endl;
 }
