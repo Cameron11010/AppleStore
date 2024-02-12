@@ -1,8 +1,8 @@
 #include "Mac.h"
 
-Mac::Mac() : Product(), ram(0), screenSize(0), color("") {}
+Mac::Mac() : Product(), ram(0), screenSize(0), colour("") {}
 
-Mac::Mac(std::string name, std::string productId, int r, float p, int q, int s) : Product(name, productId, p, q), ram(r), screenSize(s), color("") {}
+Mac::Mac(std::string name, std::string productId, int r, float p, int q, int s) : Product(name, productId, p, q), ram(r), screenSize(s), colour("") {}
 
 Mac::~Mac() {}
 
@@ -14,12 +14,12 @@ void Mac::setScreenSize(int s) {
     screenSize = s;
 }
 
-void Mac::setColor(std::string c) {
-    color = c;
+void Mac::setColour(std::string c) {
+    colour = c;
 }
 
-std::string Mac::getColor() {
-    return color;
+std::string Mac::getColour() {
+    return colour;
 }
 
 int Mac::getRam() {
@@ -35,7 +35,7 @@ void Mac::display() const {
     std::cout << "Product ID: " << getProductId() << std::endl;
     std::cout << "RAM: " << ram << " GB" << std::endl;
     std::cout << "Screen Size: " << screenSize << " inches" << std::endl;
-    std::cout << "Color: " << color << std::endl;
+    std::cout << "Colour: " << colour << std::endl;
     std::cout << "Price: $" << getPrice() << std::endl;
     std::cout << "Quantity: " << getQuantity() << std::endl;
 }
