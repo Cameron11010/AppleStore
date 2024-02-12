@@ -13,7 +13,7 @@ public:
     std::string getProductId() const;
     float getPrice() const;
     int getQuantity() const;
-    virtual void setColor(std::string color) = 0; // Pure virtual method
+    virtual void setColour(std::string colour) = 0; // Pure virtual method
     virtual void display() const = 0; // Pure virtual method
 protected:
     std::string name;
