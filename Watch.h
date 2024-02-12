@@ -6,16 +6,16 @@
 class Watch : public Product {
 public:
     Watch();
-    Watch(std::string name, std::string productId, std::string color, int size, bool isUltra, float price, int quantity);
+    Watch(std::string name, std::string productId, std::string colour, int size, bool isUltra, float price, int quantity);
     ~Watch();
-    void setColor(std::string color) override;
+    void setColour(std::string colour) override;
     void setSize(int size);
     void setIsUltra(bool isUltra);
     int getSize() const;
     bool getIsUltra() const;
     void display() const override;
 private:
-    std::string color;
+    std::string colour;
     int size;
     bool isUltra;
 };
