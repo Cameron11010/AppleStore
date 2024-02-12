@@ -3,26 +3,19 @@
 
 #include "Product.h"
 
-class Accessories: public Product {
-private:
-    std::string brand;
-
+class Accessories : public Product {
 public:
-    // Constructors
     Accessories();
-    Accessories(std::string, std::string, std::string, float, int);
-
-    // Destructor
+    Accessories(std::string name, std::string productId, std::string colour, std::string brand, float price, int quantity);
     ~Accessories();
-
-    // Setters
-    void setBrand(std::string);
-
-    // Getters
-    std::string getBrand();
-
-    // Implement the pure virtual function
-    void display();
+    void setBrand(std::string brand);
+    void setColour(std::string colour) override;
+    std::string getBrand() const;
+    std::string getColour() const;
+    void display() const override;
+private:
+    std::string colour;
+    std::string brand;
 };
 
 #endif /* Accessories_h */
